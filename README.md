@@ -5,10 +5,10 @@
 Hệ thống quản lý Thực tập sinh là một hệ thống thông tin hỗ trợ quá trình tổ chức và quản lý thực tập cho sinh viên, giảng viên, cơ sở thực tập và các đơn vị liên quan. Hệ thống được xây dựng nhằm tập trung hóa dữ liệu, kiểm soát quá trình thực tập và hỗ trợ công tác theo dõi, đánh giá và báo cáo kết quả thực tập trong một môi trường thống nhất.
 
 Về bản chất, đây là hệ thống quản lý nghiệp vụ theo hướng quản trị quy trình thực tập, giúp:
-- lưu trữ và quản lý thông tin sinh viên tham gia thực tập;
-- theo dõi tiến độ và trạng thái thực tập;
-- quản lý thông tin đơn vị/thực tập và người hướng dẫn;
-- hỗ trợ giao nhiệm vụ, đánh giá và tổng hợp báo cáo.
+- Lưu trữ và quản lý thông tin sinh viên tham gia thực tập;
+- Theo dõi tiến độ và trạng thái thực tập;
+- Quản lý thông tin đơn vị/thực tập và người hướng dẫn;
+- Hỗ trợ giao nhiệm vụ, đánh giá và tổng hợp báo cáo.
 
 Hệ thống hướng tới việc giảm độ trùng lặp thông tin, tăng tính minh bạch trong quản lý và nâng cao hiệu quả điều hành các đợt thực tập.
 
