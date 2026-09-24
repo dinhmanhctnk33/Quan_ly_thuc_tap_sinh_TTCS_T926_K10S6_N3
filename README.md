@@ -75,11 +75,11 @@ Những thành phần này phản ánh toàn bộ vòng đời của chương tr
 
 ### 5.2. Ngoài phạm vi
 Theo Product Backlog, không có căn cứ rõ ràng cho việc bổ sung các chức năng vượt ra ngoài quản lý thực tập sinh như:
-- quản lý nhân sự doanh nghiệp tổng quát;
-- hệ thống tuyển dụng trực tuyến;
-- quản lý tài chính/đơn hàng;
-- tính năng marketing hoặc CRM tổng thể;
-- quản lý chuỗi cung ứng hoặc logistics.
+- Quản lý nhân sự doanh nghiệp tổng quát;
+- Hệ thống tuyển dụng trực tuyến;
+- Quản lý tài chính/đơn hàng;
+- Tính năng marketing hoặc CRM tổng thể;
+- Quản lý chuỗi cung ứng hoặc logistics.
 
 Các nội dung trên chưa được xác định là phần của hệ thống trong phạm vi hiện tại và do đó không được đưa vào phần giới thiệu như một chức năng chính của dự án.
 
