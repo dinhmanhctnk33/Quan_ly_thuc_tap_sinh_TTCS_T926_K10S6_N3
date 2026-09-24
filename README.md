@@ -15,12 +15,12 @@ Hệ thống hướng tới việc giảm độ trùng lặp thông tin, tăng t
 ## 2. Bối cảnh và vấn đề
 
 Trong quá trình tổ chức thực tập sinh, các đơn vị quản lý thường phải xử lý nhiều loại thông tin liên quan đến sinh viên, đợt thực tập, địa điểm thực tập, người hướng dẫn, tiến độ công việc và kết quả đánh giá. Nếu dữ liệu được quản lý rời rạc, theo cách thủ công hoặc phân tán trên nhiều nguồn khác nhau, sẽ dễ phát sinh các vấn đề như:
-- thông tin sinh viên không đồng nhất hoặc bị thiếu;
-- khó kiểm tra tiến độ thực tập theo từng cá nhân hoặc từng đợt;
-- khó theo dõi tiến độ nhiệm vụ và đánh giá đầu ra;
-- thiếu cơ chế báo cáo tổng hợp cho quản lý;
-- khó giám sát các đơn vị thực tập và người hướng dẫn;
-- chậm trễ trong cập nhật trạng thái và kết quả thực tập.
+- Thông tin sinh viên không đồng nhất hoặc bị thiếu;
+- Khó kiểm tra tiến độ thực tập theo từng cá nhân hoặc từng đợt;
+- Khó theo dõi tiến độ nhiệm vụ và đánh giá đầu ra;
+- Thiếu cơ chế báo cáo tổng hợp cho quản lý;
+- Khó giám sát các đơn vị thực tập và người hướng dẫn;
+- Chậm trễ trong cập nhật trạng thái và kết quả thực tập.
 
 Hệ thống quản lý thực tập sinh ra đời để giải quyết các vấn đề trên bằng cách xây dựng một nền tảng quản lý tập trung, cho phép các bên liên quan cập nhật, tra cứu và theo dõi thông tin một cách có hệ thống.
 
