@@ -1,0 +1,354 @@
+/* =========================================================
+   BIẾN CSS (CSS VARIABLES) - đổi màu toàn bộ giao diện tại đây
+   ========================================================= */
+:root {
+  --color-navy: #1B365D;         /* Primary dark - header, menu, tiêu đề */
+  --color-navy-hover: #14294a;
+  --color-corporate-blue: #2C5282; /* Action accent - nút, tab active, focus */
+  --color-bg: #F7FAFC;
+  --color-card-bg: #FFFFFF;
+  --color-border: #D9DFE7;
+  --color-text: #1F2933;
+  --color-text-muted: #6B7785;
+  --color-secondary-bg: #EDF0F4;
+  --color-secondary-text: #3A4552;
+  --color-danger: #E53E3E;
+  --color-danger-bg: #FFF5F5;
+  --color-success: #2F855A;
+  --color-warning: #DD6B20;
+
+  --radius-md: 8px;
+  --radius-lg: 8px;
+  --shadow-card: 0 2px 10px rgba(27, 54, 93, 0.08);
+  --transition-fast: 0.18s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Giới hạn & căn giữa cho màn desktop 1366px - 1920px */
+.page-wrapper {
+  max-width: 1200px;
+  margin: 32px auto;
+  padding: 0 24px;
+}
+
+/* =========================================================
+   HEADER BAR
+   ========================================================= */
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px 24px;
+  margin-bottom: 20px;
+  background: var(--color-navy);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.header-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.3px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast), transform 0.1s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-icon {
+  font-size: 14px;
+}
+
+.btn-primary {
+  background: var(--color-corporate-blue);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--color-navy-hover);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-corporate-blue);
+  border-color: var(--color-corporate-blue);
+}
+.btn-outline:hover {
+  background: rgba(44, 82, 130, 0.08);
+}
+
+.btn-sm {
+  padding: 6px 14px;
+  font-size: 13px;
+}
+
+/* =========================================================
+   CARD CHÍNH
+   ========================================================= */
+.card {
+  background: var(--color-card-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+/* =========================================================
+   TAB NAVIGATION
+   ========================================================= */
+.tab-nav {
+  display: flex;
+  border-bottom: 1px solid var(--color-border);
+  background: #FAFBFC;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 16px 12px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.tab-btn:hover {
+  color: var(--color-navy);
+  background: rgba(27, 54, 93, 0.04);
+}
+
+.tab-btn.active {
+  color: var(--color-corporate-blue);
+  border-bottom-color: var(--color-corporate-blue);
+  background: #fff;
+}
+
+/* =========================================================
+   TAB CONTENT & FORM GRID
+   ========================================================= */
+.tab-content {
+  display: none;
+  padding: 28px 32px;
+  animation: fadeIn 0.2s ease;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 28px;
+}
+
+@media (max-width: 720px) {
+  .form-grid { grid-template-columns: 1fr; }
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.required {
+  color: var(--color-danger);
+}
+
+.form-field input,
+.form-field select {
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  background: #fff;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  outline: none;
+  border-color: var(--color-corporate-blue);
+  box-shadow: 0 0 0 3px rgba(44, 82, 130, 0.15);
+}
+
+/* Trạng thái lỗi validate */
+.form-field.has-error input,
+.form-field.has-error select {
+  border-color: var(--color-danger);
+  background: var(--color-danger-bg);
+}
+
+.error-message {
+  display: none;
+  font-size: 12px;
+  color: var(--color-danger);
+}
+
+.error-message.show {
+  display: block;
+}
+
+/* =========================================================
+   DROPZONE - KÉO THẢ FILE EXCEL
+   ========================================================= */
+.dropzone-section {
+  padding: 0 32px 32px;
+  border-top: 1px solid var(--color-border);
+  margin-top: 4px;
+  padding-top: 24px;
+}
+
+.dropzone-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.dropzone-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-navy);
+}
+
+.dropzone {
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  background: #FAFBFC;
+  padding: 36px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.dropzone:hover {
+  border-color: var(--color-corporate-blue);
+  background: rgba(44, 82, 130, 0.04);
+}
+
+/* Hiệu ứng khi đang kéo file rê qua khung (thêm bằng JS) */
+.dropzone.drag-over {
+  border-color: var(--color-navy);
+  background: rgba(27, 54, 93, 0.06);
+}
+
+/* Hiệu ứng khi file hợp lệ đã được chọn */
+.dropzone.file-accepted {
+  border-color: var(--color-success);
+  background: rgba(47, 133, 90, 0.06);
+}
+
+.dropzone-icon {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.dropzone-text {
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.dropzone-link {
+  color: var(--color-corporate-blue);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.dropzone-filename {
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-success);
+  display: none;
+}
+
+.dropzone-filename.show {
+  display: block;
+}
+
+/* =========================================================
+   TOAST THÔNG BÁO
+   ========================================================= */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--color-success);
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: var(--shadow-card);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  z-index: 999;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}

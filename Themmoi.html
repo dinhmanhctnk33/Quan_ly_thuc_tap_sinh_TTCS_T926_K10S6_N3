@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UI-05: Thêm mới hồ sơ Thực tập sinh</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="page-wrapper">
+    <form id="internForm" novalidate>
+
+      <!-- ============ HEADER BAR ============ -->
+      <header class="header-bar">
+        <h1 class="header-title">THÊM MỚI HỒ SƠ THỰC TẬP SINH</h1>
+        <div class="header-actions">
+          <button type="button" id="btnCancel" class="btn btn-secondary">
+            <span class="btn-icon">❌</span> Hủy
+          </button>
+          <button type="submit" id="btnSave" class="btn btn-primary">
+            <span class="btn-icon">💾</span> Lưu
+          </button>
+        </div>
+      </header>
+
+      <!-- ============ MAIN CARD ============ -->
+      <div class="card">
+
+        <!-- ============ TAB NAVIGATION ============ -->
+        <nav class="tab-nav" role="tablist">
+          <button type="button" class="tab-btn active" data-tab="tab1" role="tab" aria-selected="true" aria-controls="tab1" id="tab1-tab">
+            THÔNG TIN CÁ NHÂN
+          </button>
+          <button type="button" class="tab-btn" data-tab="tab2" role="tab" aria-selected="false" aria-controls="tab2" id="tab2-tab">
+            HỌC VẤN &amp; TRƯỜNG
+          </button>
+          <button type="button" class="tab-btn" data-tab="tab3" role="tab" aria-selected="false" aria-controls="tab3" id="tab3-tab">
+            BỘ PHẬN &amp; MENTOR
+          </button>
+        </nav>
+
+        <!-- ============ TAB 1: THÔNG TIN CÁ NHÂN ============ -->
+        <section class="tab-content active" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">
+          <div class="form-grid">
+
+            <div class="form-field">
+              <label for="fullName">Họ và tên <span class="required">*</span></label>
+              <input type="text" id="fullName" name="fullName" placeholder="Nguyễn Văn A" />
+              <span class="error-message" id="err-fullName"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="dob">Ngày sinh <span class="required">*</span></label>
+              <input type="date" id="dob" name="dob" />
+              <span class="error-message" id="err-dob"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="email">Email cá nhân <span class="required">*</span></label>
+              <input type="email" id="email" name="email" placeholder="nguyenvana@gmail.com" />
+              <span class="error-message" id="err-email"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="phone">Số điện thoại <span class="required">*</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="0987654321" maxlength="10" />
+              <span class="error-message" id="err-phone"></span>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ============ TAB 2: HỌC VẤN & TRƯỜNG ============ -->
+        <section class="tab-content" id="tab2" role="tabpanel" aria-labelledby="tab2-tab" hidden>
+          <div class="form-grid">
+
+            <div class="form-field">
+              <label for="school">Trường Đại học/Cao đẳng <span class="required">*</span></label>
+              <input type="text" id="school" name="school" placeholder="Đại học Bách Khoa Hà Nội" />
+              <span class="error-message" id="err-school"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="major">Chuyên ngành</label>
+              <input type="text" id="major" name="major" placeholder="Công nghệ thông tin" />
+              <span class="error-message" id="err-major"></span>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ============ TAB 3: BỘ PHẬN & MENTOR ============ -->
+        <section class="tab-content" id="tab3" role="tabpanel" aria-labelledby="tab3-tab" hidden>
+          <div class="form-grid">
+
+            <div class="form-field">
+              <label for="department">Bộ phận tiếp nhận</label>
+              <select id="department" name="department">
+                <option value="">-- Chọn bộ phận --</option>
+                <option value="Phát triển phần mềm">Phát triển phần mềm</option>
+                <option value="HR">HR</option>
+                <option value="Marketing">Marketing</option>
+              </select>
+              <span class="error-message" id="err-department"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="mentor">Mentor phụ trách</label>
+              <input type="text" id="mentor" name="mentor" placeholder="Trần Thị B" />
+              <span class="error-message" id="err-mentor"></span>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ============ EXCEL DROPZONE (dùng chung, nằm dưới các tab) ============ -->
+        <section class="dropzone-section">
+          <div class="dropzone-header">
+            <h2 class="dropzone-title">Nhập nhanh từ file Excel</h2>
+            <button type="button" id="btnTemplate" class="btn btn-outline btn-sm">
+              ⬇️ Tải file mẫu (.xlsx)
+            </button>
+          </div>
+
+          <div id="dropzone" class="dropzone" role="button" tabindex="0" aria-label="Chọn hoặc kéo thả file Excel">
+            <input type="file" id="fileInput" accept=".xlsx,.xls" hidden />
+            <div class="dropzone-icon">📁</div>
+            <p class="dropzone-text">
+              Kéo thả file Excel (.xlsx) vào đây hoặc <span class="dropzone-link">Click để chọn file</span>
+            </p>
+            <p class="dropzone-filename" id="dropzoneFileName"></p>
+          </div>
+          <span class="error-message" id="err-file"></span>
+        </section>
+
+      </div>
+    </form>
+  </div>
+
+  <!-- Toast thông báo nhỏ khi lưu thành công -->
+  <div id="toast" class="toast"></div>
+
+  <script src="nhaphoso.js"></script>
+</body>
+</html>
