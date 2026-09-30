@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quản lý thực tập sinh</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fa-solid fa-user-graduate"></i>
+            </div>
+
+            <div>
+                <h2>InternMS</h2>
+                <span>Quản lý thực tập sinh</span>
+            </div>
+        </div>
+
+        <nav class="menu">
+
+            <p class="menu-title">TỔNG QUAN</p>
+
+            <a href="#" class="menu-item active">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <p class="menu-title">QUẢN LÝ</p>
+
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-users"></i>
+                <span>Thực tập sinh</span>
+            </a>
+
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-user-tie"></i>
+                <span>Mentor</span>
+            </a>
+
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-building"></i>
+                <span>Phòng ban</span>
+            </a>
+
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-calendar-days"></i>
+                <span>Chương trình</span>
+            </a>
+
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-file-contract"></i>
+                <span>Hợp đồng</span>
+            </a>
+
+            <p class="menu-title">CÔNG VIỆC</p>
+
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-list-check"></i>
+                <span>Nhiệm vụ</span>
+            </a>
+
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-file-lines"></i>
+                <span>Báo cáo tuần</span>
+            </a>
+
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-star"></i>
+                <span>Đánh giá</span>
+            </a>
+
+            <p class="menu-title">CHẤM CÔNG</p>
+
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-clock"></i>
+                <span>Chấm công</span>
+            </a>
+
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-calendar-xmark"></i>
+                <span>Nghỉ phép</span>
+            </a>
+
+            <p class="menu-title">HỖ TRỢ</p>
+
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-headset"></i>
+                <span>Yêu cầu hỗ trợ</span>
+            </a>
+
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-bell"></i>
+                <span>Thông báo</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-gear"></i>
+                <span>Cài đặt</span>
+            </a>
+
+            <a href="#" class="menu-item logout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Đăng xuất</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+        <!-- HEADER -->
+
+        <header class="header">
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input type="text"
+                       placeholder="Tìm kiếm thực tập sinh, mentor...">
+
+            </div>
+
+            <div class="header-right">
+
+                <button class="notification">
+                    <i class="fa-regular fa-bell"></i>
+                    <span>3</span>
+                </button>
+
+                <div class="user">
+
+                    <div class="avatar">
+                        Q
+                    </div>
+
+                    <div class="user-info">
+                        <strong>Hoàng Văn Quyến</strong>
+                        <small>Administrator</small>
+                    </div>
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENT -->
+
+        <section class="content">
+
+            <div class="page-title">
+
+                <div>
+                    <h1>Dashboard</h1>
+                    <p>Chào mừng bạn quay trở lại hệ thống quản lý thực tập sinh.</p>
+                </div>
+
+                <button class="primary-btn">
+                    <i class="fa-solid fa-plus"></i>
+                    Thêm thực tập sinh
+                </button>
+
+            </div>
+
+
+            <!-- ================= STATISTICS ================= -->
+
+            <div class="statistics">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <div>
+                        <span>Tổng thực tập sinh</span>
+                        <h2>128</h2>
+                        <small class="increase">
+                            <i class="fa-solid fa-arrow-up"></i>
+                            12% tháng này
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+
+                    <div>
+                        <span>Đang thực tập</span>
+                        <h2>96</h2>
+                        <small class="increase">
+                            <i class="fa-solid fa-arrow-up"></i>
+                            8% tháng này
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+
+                    <div>
+                        <span>Mentor</span>
+                        <h2>24</h2>
+                        <small>Đang hoạt động</small>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                    </div>
+
+                    <div>
+                        <span>Báo cáo chờ duyệt</span>
+                        <h2>17</h2>
+                        <small class="warning">
+                            Cần xử lý
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= GRID ================= -->
+
+            <div class="dashboard-grid">
+
+                <!-- Intern list -->
+
+                <div class="card large-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h3>Thực tập sinh mới</h3>
+                            <p>Danh sách thực tập sinh mới nhất</p>
+                        </div>
+
+                        <a href="#">Xem tất cả</a>
+
+                    </div>
+
+
+                    <div class="table-container">
+
+                        <table>
+
+                            <thead>
+
+                            <tr>
+                                <th>Thực tập sinh</th>
+                                <th>Mã TTS</th>
+                                <th>Chương trình</th>
+                                <th>Mentor</th>
+                                <th>Trạng thái</th>
+                            </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                            <tr>
+
+                                <td>
+                                    <div class="person">
+                                        <div class="person-avatar">NA</div>
+
+                                        <div>
+                                            <strong>Nguyễn Văn An</strong>
+                                            <small>nguyenan@gmail.com</small>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>TTS001</td>
+
+                                <td>Web Development</td>
+
+                                <td>Nguyễn Minh Anh</td>
+
+                                <td>
+                                    <span class="badge active">
+                                        Đang thực tập
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <div class="person">
+                                        <div class="person-avatar">TL</div>
+
+                                        <div>
+                                            <strong>Trần Thị Lan</strong>
+                                            <small>tranlan@gmail.com</small>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>TTS002</td>
+
+                                <td>Software Engineering</td>
+
+                                <td>Phạm Văn Minh</td>
+
+                                <td>
+                                    <span class="badge active">
+                                        Đang thực tập
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <div class="person">
+                                        <div class="person-avatar">HM</div>
+
+                                        <div>
+                                            <strong>Hoàng Minh</strong>
+                                            <small>hoangminh@gmail.com</small>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>TTS003</td>
+
+                                <td>Data Analyst</td>
+
+                                <td>Nguyễn Văn Nam</td>
+
+                                <td>
+                                    <span class="badge pending">
+                                        Chờ duyệt
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <div class="person">
+                                        <div class="person-avatar">LH</div>
+
+                                        <div>
+                                            <strong>Lê Hoàng</strong>
+                                            <small>lehoang@gmail.com</small>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>TTS004</td>
+
+                                <td>Frontend Developer</td>
+
+                                <td>Trần Văn Bình</td>
+
+                                <td>
+                                    <span class="badge active">
+                                        Đang thực tập
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Attendance -->
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h3>Chấm công hôm nay</h3>
+                            <p>30/09/2026</p>
+                        </div>
+
+                        <i class="fa-solid fa-clock card-header-icon"></i>
+
+                    </div>
+
+
+                    <div class="attendance">
+
+                        <div class="attendance-item">
+
+                            <div class="attendance-icon green">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+
+                            <div>
+                                <strong>82</strong>
+                                <span>Đúng giờ</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="attendance-item">
+
+                            <div class="attendance-icon orange">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+
+                            <div>
+                                <strong>9</strong>
+                                <span>Đi muộn</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="attendance-item">
+
+                            <div class="attendance-icon red">
+                                <i class="fa-solid fa-xmark"></i>
+                            </div>
+
+                            <div>
+                                <strong>5</strong>
+                                <span>Vắng mặt</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <button class="outline-btn">
+                        Xem bảng chấm công
+                    </button>
+
+                </div>
+
+
+                <!-- Tasks -->
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h3>Nhiệm vụ gần đến hạn</h3>
+                            <p>Các nhiệm vụ cần hoàn thành</p>
+                        </div>
+
+                        <a href="#">Xem tất cả</a>
+
+                    </div>
+
+
+                    <div class="task-list">
+
+                        <div class="task">
+
+                            <div class="task-check">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+
+                            <div class="task-content">
+
+                                <strong>Hoàn thiện giao diện Login</strong>
+
+                                <span>
+                                    Nguyễn Văn An • Hôm nay
+                                </span>
+
+                            </div>
+
+                            <span class="priority high">
+                                Cao
+                            </span>
+
+                        </div>
+
+
+                        <div class="task">
+
+                            <div class="task-check">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+
+                            <div class="task-content">
+
+                                <strong>Viết API quản lý sinh viên</strong>
+
+                                <span>
+                                    Trần Thị Lan • 01/10/2026
+                                </span>
+
+                            </div>
+
+                            <span class="priority medium">
+                                TB
+                            </span>
+
+                        </div>
+
+
+                        <div class="task">
+
+                            <div class="task-check">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+
+                            <div class="task-content">
+
+                                <strong>Thiết kế Database</strong>
+
+                                <span>
+                                    Hoàng Minh • 02/10/2026
+                                </span>
+
+                            </div>
+
+                            <span class="priority low">
+                                Thấp
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Reports -->
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h3>Báo cáo tuần</h3>
+                            <p>Tình trạng báo cáo thực tập</p>
+                        </div>
+
+                        <a href="#">Xem tất cả</a>
+
+                    </div>
+
+
+                    <div class="progress-box">
+
+                        <div class="progress-info">
+
+                            <span>Đã nộp</span>
+                            <strong>78%</strong>
+
+                        </div>
+
+                        <div class="progress">
+                            <div style="width:78%"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="report-status">
+
+                        <div>
+                            <span class="dot green-dot"></span>
+                            Đã duyệt
+                            <strong>61</strong>
+                        </div>
+
+                        <div>
+                            <span class="dot orange-dot"></span>
+                            Chờ duyệt
+                            <strong>17</strong>
+                        </div>
+
+                        <div>
+                            <span class="dot red-dot"></span>
+                            Từ chối
+                            <strong>4</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>
