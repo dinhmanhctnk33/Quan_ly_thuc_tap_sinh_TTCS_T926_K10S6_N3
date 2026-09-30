@@ -1,21 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>UI-05: Thêm mới hồ sơ Thực tập sinh</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <!-- Đường dẫn CSS được bọc trong ContextPath -->
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
 </head>
 <body>
 
   <div class="page-wrapper">
-    <form id="internForm" novalidate>
+    <!-- Form cập nhật action đẩy tới Servlet/Controller tương ứng -->
+    <form id="internForm" action="${pageContext.request.contextPath}/interns/add" method="POST" enctype="multipart/form-data" novalidate>
 
       <!-- ============ HEADER BAR ============ -->
       <header class="header-bar">
         <h1 class="header-title">THÊM MỚI HỒ SƠ THỰC TẬP SINH</h1>
         <div class="header-actions">
-          <button type="button" id="btnCancel" class="btn btn-secondary">
+          <button type="button" id="btnCancel" class="btn btn-secondary" onclick="window.location.href='${pageContext.request.contextPath}/interns'">
             <span class="btn-icon">❌</span> Hủy
           </button>
           <button type="submit" id="btnSave" class="btn btn-primary">
@@ -23,6 +29,14 @@
           </button>
         </div>
       </header>
+
+      <!-- Hiển thị thông báo chung từ backend (nếu có) -->
+      <c:if test="${not empty errorMessage}">
+        <div class="alert alert-danger" style="color: red; margin: 10px 0;">${errorMessage}</div>
+      </c:if>
+      <c:if test="${not empty successMessage}">
+        <div class="alert alert-success" style="color: green; margin: 10px 0;">${successMessage}</div>
+      </c:if>
 
       <!-- ============ MAIN CARD ============ -->
       <div class="card">
@@ -46,26 +60,26 @@
 
             <div class="form-field">
               <label for="fullName">Họ và tên <span class="required">*</span></label>
-              <input type="text" id="fullName" name="fullName" placeholder="Nguyễn Văn A" />
-              <span class="error-message" id="err-fullName"></span>
+              <input type="text" id="fullName" name="fullName" value="${intern.fullName}" placeholder="Nguyễn Văn A" />
+              <span class="error-message" id="err-fullName">${errors.fullName}</span>
             </div>
 
             <div class="form-field">
               <label for="dob">Ngày sinh <span class="required">*</span></label>
-              <input type="date" id="dob" name="dob" />
-              <span class="error-message" id="err-dob"></span>
+              <input type="date" id="dob" name="dob" value="${intern.dob}" />
+              <span class="error-message" id="err-dob">${errors.dob}</span>
             </div>
 
             <div class="form-field">
               <label for="email">Email cá nhân <span class="required">*</span></label>
-              <input type="email" id="email" name="email" placeholder="nguyenvana@gmail.com" />
-              <span class="error-message" id="err-email"></span>
+              <input type="email" id="email" name="email" value="${intern.email}" placeholder="nguyenvana@gmail.com" />
+              <span class="error-message" id="err-email">${errors.email}</span>
             </div>
 
             <div class="form-field">
               <label for="phone">Số điện thoại <span class="required">*</span></label>
-              <input type="tel" id="phone" name="phone" placeholder="0987654321" maxlength="10" />
-              <span class="error-message" id="err-phone"></span>
+              <input type="tel" id="phone" name="phone" value="${intern.phone}" placeholder="0987654321" maxlength="10" />
+              <span class="error-message" id="err-phone">${errors.phone}</span>
             </div>
 
           </div>
@@ -77,14 +91,14 @@
 
             <div class="form-field">
               <label for="school">Trường Đại học/Cao đẳng <span class="required">*</span></label>
-              <input type="text" id="school" name="school" placeholder="Đại học Bách Khoa Hà Nội" />
-              <span class="error-message" id="err-school"></span>
+              <input type="text" id="school" name="school" value="${intern.school}" placeholder="Đại học Bách Khoa Hà Nội" />
+              <span class="error-message" id="err-school">${errors.school}</span>
             </div>
 
             <div class="form-field">
               <label for="major">Chuyên ngành</label>
-              <input type="text" id="major" name="major" placeholder="Công nghệ thông tin" />
-              <span class="error-message" id="err-major"></span>
+              <input type="text" id="major" name="major" value="${intern.major}" placeholder="Công nghệ thông tin" />
+              <span class="error-message" id="err-major">${errors.major}</span>
             </div>
 
           </div>
@@ -98,40 +112,49 @@
               <label for="department">Bộ phận tiếp nhận</label>
               <select id="department" name="department">
                 <option value="">-- Chọn bộ phận --</option>
-                <option value="Phát triển phần mềm">Phát triển phần mềm</option>
-                <option value="HR">HR</option>
-                <option value="Marketing">Marketing</option>
+                <c:choose>
+                  <c:when test="${not empty departmentList}">
+                    <c:forEach var="dept" items="${departmentList}">
+                      <option value="${dept.id}" ${intern.departmentId == dept.id ? 'selected' : ''}>${dept.name}</option>
+                    </c:forEach>
+                  </c:when>
+                  <c:otherwise>
+                    <option value="Phát triển phần mềm" ${intern.department == 'Phát triển phần mềm' ? 'selected' : ''}>Phát triển phần mềm</option>
+                    <option value="HR" ${intern.department == 'HR' ? 'selected' : ''}>HR</option>
+                    <option value="Marketing" ${intern.department == 'Marketing' ? 'selected' : ''}>Marketing</option>
+                  </c:otherwise>
+                </c:choose>
               </select>
-              <span class="error-message" id="err-department"></span>
+              <span class="error-message" id="err-department">${errors.department}</span>
             </div>
 
             <div class="form-field">
               <label for="mentor">Mentor phụ trách</label>
-              <input type="text" id="mentor" name="mentor" placeholder="Trần Thị B" />
-              <span class="error-message" id="err-mentor"></span>
+              <input type="text" id="mentor" name="mentor" value="${intern.mentor}" placeholder="Trần Thị B" />
+              <span class="error-message" id="err-mentor">${errors.mentor}</span>
             </div>
 
           </div>
         </section>
 
-        <!-- ============ EXCEL DROPZONE (dùng chung, nằm dưới các tab) ============ -->
+        <!-- ============ EXCEL DROPZONE ============ -->
         <section class="dropzone-section">
           <div class="dropzone-header">
             <h2 class="dropzone-title">Nhập nhanh từ file Excel</h2>
-            <button type="button" id="btnTemplate" class="btn btn-outline btn-sm">
+            <button type="button" id="btnTemplate" class="btn btn-outline btn-sm" onclick="window.location.href='${pageContext.request.contextPath}/templates/intern_template.xlsx'">
               ⬇️ Tải file mẫu (.xlsx)
             </button>
           </div>
 
           <div id="dropzone" class="dropzone" role="button" tabindex="0" aria-label="Chọn hoặc kéo thả file Excel">
-            <input type="file" id="fileInput" accept=".xlsx,.xls" hidden />
+            <input type="file" id="fileInput" name="excelFile" accept=".xlsx,.xls" hidden />
             <div class="dropzone-icon">📁</div>
             <p class="dropzone-text">
               Kéo thả file Excel (.xlsx) vào đây hoặc <span class="dropzone-link">Click để chọn file</span>
             </p>
             <p class="dropzone-filename" id="dropzoneFileName"></p>
           </div>
-          <span class="error-message" id="err-file"></span>
+          <span class="error-message" id="err-file">${errors.file}</span>
         </section>
 
       </div>
@@ -141,6 +164,7 @@
   <!-- Toast thông báo nhỏ khi lưu thành công -->
   <div id="toast" class="toast"></div>
 
-  <script src="nhaphoso.js"></script>
+  <!-- JavaScript với đường dẫn tĩnh chuẩn JSP -->
+  <script src="${pageContext.request.contextPath}/js/nhaphoso.js"></script>
 </body>
 </html>
